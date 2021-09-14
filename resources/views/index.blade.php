@@ -309,7 +309,7 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     <div class="game flex">
                         <a href="#">
-                            <img src="/cyberpunk.jpg" alt="game cover"
+                            <img src="/avengers.jpg" alt="game cover"
                                  class="w-16 hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="ml-4">
@@ -321,7 +321,7 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     <div class="game flex">
                         <a href="#">
-                            <img src="/cyberpunk.jpg" alt="game cover"
+                            <img src="/avengers.jpg" alt="game cover"
                                  class="w-16 hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="ml-4">
@@ -333,7 +333,7 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     <div class="game flex">
                         <a href="#">
-                            <img src="/cyberpunk.jpg" alt="game cover"
+                            <img src="/avengers.jpg" alt="game cover"
                                  class="w-16 hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="ml-4">
@@ -345,7 +345,7 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     <div class="game flex">
                         <a href="#">
-                            <img src="/cyberpunk.jpg" alt="game cover"
+                            <img src="/avengers.jpg" alt="game cover"
                                  class="w-16 hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="ml-4">
