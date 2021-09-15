@@ -6,7 +6,7 @@
             <div class="flex-none">
                 <img src="/ff7.jpg" alt="cover">
             </div>
-            <div class="ml-12">
+            <div class="ml-12 mr-64">
                 <div class="font-semibold text-4xl">Final Fantasy VII Remake</div>
                 <div class="text-gray-400 mt-2">
                     <span>Adventure, RPG</span>
@@ -78,7 +78,68 @@
                             </a>
                         </div>
                     </div>
+                </div>
 
+                <p class="mt-12">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dignissimos facere harum iste
+                    labore pariatur quibusdam quis quos, repudiandae vel. Alias atque aut eius enim facilis illo minus
+                    odio optio sapiente ullam! Et iure nam, officiis quis quo saepe voluptatibus!
+                </p>
+
+                <div class="mt-12">
+                    <button
+                        class="flex bg-blue-500 text-white font-semibold px-4 py-4 hover:bg-blue-600 rounded transition ease-in-out duration-150">
+                        <svg class="w-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                        </svg>
+                        <span class="ml-2">Play Trailer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="images-container border-b border-gray-800 pb-12 mt-8">
+            <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
+                Images
+            </h2>
+            <div class="grid grid-cols-3 gap-12 mt-8">
+                <div>
+                    <a href="#">
+                        <img src="/screenshot1.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="/screenshot2.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="/screenshot3.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="/screenshot4.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="/screenshot5.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <img src="/screenshot6.jpg" alt="screenshot"
+                             class="hover:opacity-75 transition ease-in-out duration-150">
+                    </a>
                 </div>
             </div>
         </div>
