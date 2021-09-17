@@ -87,7 +87,7 @@
                     <div class="most-anticipated-container space-y-10 mt-8">
                         <div class="game flex">
                             <a href="#">
-                                <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}"
+                                <img src="{{ Str::replaceFirst('thumb', 'cover_small', $games['cover']['url']) }}"
                                      alt="game cover"
                                      class="w-16 hover:opacity-75 transition ease-in-out duration-150">
                             </a>
@@ -101,54 +101,22 @@
                 @endforeach
 
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold mt-8">Coming Soon</h2>
-                <div class="most-anticipated-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img src="/avengers.jpg" alt="game cover"
-                                 class="w-16 hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">CyberPunk 2077</a>
-                            <div class="text-gray-400 text-sm mt-1">Sept 16, 2020</div>
+                @foreach($comingSoon as $games)
+                    <div class="most-anticipated-container space-y-10 mt-8">
+                        <div class="game flex">
+                            <a href="#">
+                                <img src="{{ Str::replaceFirst('thumb', 'cover_small', $games['cover']['url']) }}"
+                                     alt="game cover"
+                                     class="w-16 hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            <div class="ml-4">
+                                <a href="#" class="hover:text-gray-300">{{ $games['name'] }}</a>
+                                <div
+                                    class="text-gray-400 text-sm mt-1">{{ date('M j, Y.',$games['first_release_date']) }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="most-anticipated-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img src="/avengers.jpg" alt="game cover"
-                                 class="w-16 hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">CyberPunk 2077</a>
-                            <div class="text-gray-400 text-sm mt-1">Sept 16, 2020</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="most-anticipated-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img src="/avengers.jpg" alt="game cover"
-                                 class="w-16 hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">CyberPunk 2077</a>
-                            <div class="text-gray-400 text-sm mt-1">Sept 16, 2020</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="most-anticipated-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img src="/avengers.jpg" alt="game cover"
-                                 class="w-16 hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">CyberPunk 2077</a>
-                            <div class="text-gray-400 text-sm mt-1">Sept 16, 2020</div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
