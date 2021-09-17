@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Http;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $before = Carbon::now()->subMonths(2)->timestamp;
+        $after = Carbon::now()->addMonths(2)->timestamp;
+
         $popularGames = Http::withHeaders(config('services.igdb'))->withBody("
-            fields name, total_rating_count;
+            fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating;
+            where platforms = (48,49,130,6)
+            & total_rating_count != null
+            & (first_release_date >= {$before}
+            & first_release_date < {$after});
             sort total_rating_count desc;
-            where total_rating_count != null;
-            limit 20;
+            limit 12;
             ", "text/plain")
             ->post('https://api.igdb.com/v4/games')
             ->json();
 
-        dd($popularGames);
+        return view('index', compact('popularGames'));
     }
 
     /**
