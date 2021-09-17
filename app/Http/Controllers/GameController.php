@@ -20,6 +20,8 @@ class GameController extends Controller
         ])->withBody("
             fields name, total_rating_count;
             sort total_rating_count desc;
+            where total_rating_count != null;
+            limit 20;
             ", "text/plain")
             ->post('https://api.igdb.com/v4/games')
             ->json();
