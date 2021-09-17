@@ -14,10 +14,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $popularGames = Http::withHeaders([
-            'Client-ID' => 'nmgqwo7lh6yl6tanh100zzbip75r29',
-            'Authorization' => 'Bearer kyfc6jqyi3zl29hnvx1bpb7qcv6mky'
-        ])->withBody("
+        $popularGames = Http::withHeaders(config('services.igdb'))->withBody("
             fields name, total_rating_count;
             sort total_rating_count desc;
             where total_rating_count != null;
