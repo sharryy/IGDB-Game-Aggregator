@@ -20,8 +20,8 @@ class GameController extends Controller
         ])->withBody("
             fields name, total_rating_count;
             sort total_rating_count desc;
-            ", 'text/plain')
-            ->get('https://api.igdb.com/v4/games')
+            ", "text/plain")
+            ->post('https://api.igdb.com/v4/games')
             ->json();
 
         dd($popularGames);
