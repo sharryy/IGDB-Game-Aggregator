@@ -33,94 +33,48 @@
                 </div>
             @endforeach
         </div>
+
         <div class="flex flex-col lg:flex-row my-10">
             <div class="recently-reviewed w-full lg:w-3/4 mr-0 lg:mr-32">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Recently Reviewed</h2>
                 <div class="recently-reviewed-container space-y-12 mt-8">
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img src="ff7.jpg" alt="game cover"
-                                     class="hover:opacity-75 w-48 transition ease-in-out duration-150">
-                            </a>
-                            <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
-                                 style="right: -20px; bottom: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    80%
+                    @foreach($recentlyReviewed as $games)
+                        <div class="flex bg-gray-800 rounded-lg shadow-md  px-6 py-6">
+                            <div class="game bg-gray-800 rounded-lg flex-none">
+                                <div class="relative">
+                                    <a href="#">
+                                        <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}"
+                                             alt="game cover"
+                                             class="hover:opacity-75 w-48 transition ease-in-out duration-150">
+                                    </a>
+                                    <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
+                                         style="right: -20px; bottom: -20px;">
+                                        <div class="font-semibold text-xs flex justify-center items-center h-full">
+                                            80%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="ml-12">
+                                    <a href="#"
+                                       class="block text-base font-semibold leading-tight hover:text-gray-400 mt-4">
+                                        {{ $games['name'] }}
+                                    </a>
+                                    <div class="text-gray-400 mt-1">
+                                        @foreach($games['platforms'] as $platform)
+                                            @if(array_key_exists('abbreviation', $platform))
+                                                {{ $platform['abbreviation'] }},
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="mt-6 text-gray-400 hidden lg:block">
+                                        {{ $games['summary'] }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="ml-12">
-                            <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-4">
-                                Final Fantasy 7 Remake
-                            </a>
-                            <div class="text-gray-400 mt-1">
-                                Playstation 1
-                            </div>
-                            <div class="mt-6 text-gray-400 hidden lg:block">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus, commodi
-                                cupiditate deserunt esse harum id ipsum natus nesciunt odit quasi qui recusandae
-                                voluptates. Aut cupiditate exercitationem in nemo. Amet blanditiis dolores laboriosam
-                                nemo neque possimus praesentium, quo quos repellat?
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img src="ff7.jpg" alt="game cover"
-                                     class="hover:opacity-75 w-48 transition ease-in-out duration-150">
-                            </a>
-                            <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
-                                 style="right: -20px; bottom: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    80%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ml-12">
-                            <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-4">
-                                Final Fantasy 7 Remake
-                            </a>
-                            <div class="text-gray-400 mt-1">
-                                Playstation 1
-                            </div>
-                            <div class="mt-6 text-gray-400 hidden lg:block">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus, commodi
-                                cupiditate deserunt esse harum id ipsum natus nesciunt odit quasi qui recusandae
-                                voluptates. Aut cupiditate exercitationem in nemo. Amet blanditiis dolores laboriosam
-                                nemo neque possimus praesentium, quo quos repellat?
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img src="ff7.jpg" alt="game cover"
-                                     class="hover:opacity-75 w-48 transition ease-in-out duration-150">
-                            </a>
-                            <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
-                                 style="right: -20px; bottom: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    80%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ml-12">
-                            <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-4">
-                                Final Fantasy 7 Remake
-                            </a>
-                            <div class="text-gray-400 mt-1">
-                                Playstation 1
-                            </div>
-                            <div class="mt-6 text-gray-400 hidden lg:block">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus, commodi
-                                cupiditate deserunt esse harum id ipsum natus nesciunt odit quasi qui recusandae
-                                voluptates. Aut cupiditate exercitationem in nemo. Amet blanditiis dolores laboriosam
-                                nemo neque possimus praesentium, quo quos repellat?
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="most-anticipated lg:w-1/4 mt-12 lg:mt-0">
