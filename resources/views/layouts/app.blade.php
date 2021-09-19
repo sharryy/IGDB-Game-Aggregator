@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laracasts Video Games</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <livewire:styles/>
 </head>
 <body class="bg-gray-900 text-white">
 <header class="border-b border-gray-800">
@@ -49,5 +50,6 @@
         </div>
     </footer>
 </header>
+<livewire:scripts/>
 </body>
 </html>
