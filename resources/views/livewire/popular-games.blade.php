@@ -29,7 +29,7 @@
             </div>
         </div>
     @empty
-        <div>
+        <div class="spinner mt-8">
             Loading..
         </div>
     @endforelse

@@ -39,6 +39,6 @@
             </div>
         </div>
     @empty
-        <div>Loading..</div>
+        <div class="spinner mt-8">Loading..</div>
     @endforelse
 </div>
