@@ -15,8 +15,9 @@ class MostAnticipated extends Component
         $before = Carbon::now()->subMonths(2)->timestamp;
         $afterFourMonths = Carbon::now()->addMonths(4)->timestamp;
 
-        $this->mostAnticipated = Http::withHeaders(config('services.igdb'))
-            ->withBody("
+        $this->mostAnticipated = \Cache::remember('most-anticipated', 15, function () use ($before, $afterFourMonths) {
+            return $this->mostAnticipated = Http::withHeaders(config('services.igdb'))
+                ->withBody("
                 fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating, rating_count, summary;
                 where platforms = (48,49,130,6)
                 & total_rating_count != null
@@ -24,9 +25,9 @@ class MostAnticipated extends Component
                 & first_release_date < $afterFourMonths);
                 limit 4;
             ", "text/plain")
-            ->post('https://api.igdb.com/v4/games')
-            ->json();
-
+                ->post('https://api.igdb.com/v4/games')
+                ->json();
+        });
     }
 
     public function render()
