@@ -4,7 +4,7 @@
         <div class="flex bg-gray-800 rounded-lg shadow-md  px-6 py-6">
             <div class="game bg-gray-800 rounded-lg flex-none">
                 <div class="relative">
-                    <a href="#">
+                    <a href="{{ route('games.show', $games['slug']) }}">
                         <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}"
                              alt="game cover"
                              class="hover:opacity-75 w-48 transition ease-in-out duration-150">
@@ -21,7 +21,7 @@
             </div>
             <div>
                 <div class="ml-12">
-                    <a href="#"
+                    <a href="{{ route('games.show', $games['slug']) }}"
                        class="block text-base font-semibold leading-tight hover:text-gray-400 mt-4">
                         {{ $games['name'] }}
                     </a>
