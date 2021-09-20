@@ -24,15 +24,16 @@ class GameController extends Controller
 
     public function show($slug)
     {
-        $games = \Cache::remember('popular-games', 15, function () use ($slug) {
-            return Http::withHeaders(config('services.igdb'))
-                ->withBody("
-                fields *;
+        $games = Http::withHeaders(config('services.igdb'))
+            ->withBody("
+                fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating, slug,
+                involved_companies.company.name, genres.name, aggregated_rating, summary, websites.*, videos.*,
+                screenshots.*, similar_games.cover.url, similar_games.name, similar_games.rating, similar_games.platforms.abbreviation,
+                similar_games.slug;
                 where slug=\"{$slug}\";
             ", "text/plain")
-                ->post('https://api.igdb.com/v4/games')
-                ->json();
-        });
+            ->post('https://api.igdb.com/v4/games')
+            ->json();
 
         abort_if(!$games, 404);
 

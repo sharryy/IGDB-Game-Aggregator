@@ -4,10 +4,10 @@
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-12 flex flex-col lg:flex-row">
             <div class="flex-none">
-                <img src="/ff7.jpg" alt="cover">
+                <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}" alt="cover">
             </div>
             <div class="lg:ml-12 lg:mr-64">
-                <div class="font-semibold text-4xl leading-tight mt-1">Final Fantasy VII Remake</div>
+                <div class="font-semibold text-4xl leading-tight mt-1">{{ $games['name'] }}</div>
                 <div class="text-gray-400 mt-2">
                     <span>Adventure, RPG</span>
                     &middot;
