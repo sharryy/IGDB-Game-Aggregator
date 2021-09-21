@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="ml-16">
-                <a href="#"><img src="avatar.jpg" alt="avatar" class="rounded-full w-8"></a>
+                <a href="#"><img src="/avatar.jpg" alt="avatar" class="rounded-full w-8"></a>
             </div>
         </div>
     </nav>
