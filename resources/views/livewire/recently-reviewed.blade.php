@@ -5,7 +5,7 @@
             <div class="game bg-gray-800 rounded-lg flex-none">
                 <div class="relative">
                     <a href="{{ route('games.show', $games['slug']) }}">
-                        <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}"
+                        <img src="{{ $games['coverImageUrl'] }}"
                              alt="game cover"
                              class="hover:opacity-75 w-48 transition ease-in-out duration-150">
                     </a>
@@ -13,7 +13,7 @@
                         <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
                              style="right: -20px; bottom: -20px;">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                {{ round($games['rating']) . '%' }}
+                                {{ $games['rating'] }}
                             </div>
                         </div>
                     @endif
@@ -26,11 +26,7 @@
                         {{ $games['name'] }}
                     </a>
                     <div class="text-gray-400 mt-1">
-                        @foreach($games['platforms'] as $platform)
-                            @if(array_key_exists('abbreviation', $platform))
-                                {{ $platform['abbreviation'] }},
-                            @endif
-                        @endforeach
+                        {{ $games['platform'] }}
                     </div>
                     <div class="mt-6 text-gray-400 hidden lg:block">
                         {{ $games['summary'] }}
