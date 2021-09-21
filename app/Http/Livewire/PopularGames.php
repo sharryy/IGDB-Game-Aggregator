@@ -45,7 +45,7 @@ class PopularGames extends Component
             return collect($game)->merge([
                 'coverImageUrl' => Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']),
                 'rating' => isset($game['rating']) ? round($game['rating']) . '%' : null,
-                'platform' => collect($game['platforms'])->pluck('abbreviation')->implode(', ')
+                'platforms' => collect($game['platforms'])->pluck('abbreviation')->implode(', ')
             ]);
         })->toArray();
     }
