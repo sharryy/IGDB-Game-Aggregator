@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class GameCardSmall extends Component
 {
+    public $games;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($games)
     {
-        //
+        $this->games = $games;
     }
 
     /**
