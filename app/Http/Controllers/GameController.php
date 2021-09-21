@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Str;
 
 class GameController extends Controller
 {
@@ -38,7 +39,7 @@ class GameController extends Controller
         abort_if(!$games, 404);
 
         return view('show', [
-            'games' => $games[0]
+            'games' => $this->formatGameForView($games[0])
         ]);
     }
 
@@ -55,5 +56,12 @@ class GameController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function formatGameForView($game)
+    {
+        return collect($game)->merge([
+            'coverImageUrl' => Str::replaceFirst('thumb', 'cover_big', $game['cover']['url'])
+        ]);
     }
 }

@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-12 flex flex-col lg:flex-row">
             <div class="flex-none">
-                <img src="{{ Str::replaceFirst('thumb', 'cover_big', $games['cover']['url']) }}" alt="cover">
+                <img src="{{ $games['coverImageUrl'] }}" alt="cover">
             </div>
             <div class="lg:ml-12 lg:mr-64">
                 <div class="font-semibold text-4xl leading-tight mt-1">{{ $games['name'] }}</div>
@@ -151,7 +151,7 @@
                 @foreach($games['similar_games'] as $sim_games)
                     <div class="game mt-8">
                         <div class="relative inline-block">
-                            @if(array_key_exists('cover', $games))
+                            @if(array_key_exists('cover', $sim_games))
                                 <a href="#">
                                     <img src="{{ Str::replaceFirst('thumb', 'cover_big', $sim_games['cover']['url']) }}"
                                          alt="game cover"
