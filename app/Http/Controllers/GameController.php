@@ -67,7 +67,7 @@ class GameController extends Controller
             'platforms' => collect($game['platforms'])->pluck('abbreviation')->implode(', '),
             'memberRating' => array_key_exists('rating', $game) ? round($game['rating']) : '0',
             'criticRating' => array_key_exists('aggregated_rating', $game) ? round($game['aggregated_rating']) : '0',
-            'trailerLink' => 'https://www.youtube.com/watch/' . $game['videos'][0]['video_id'],
+            'trailerLink' => isset($game['videos']) ? 'https://www.youtube.com/watch/' . $game['videos'][0]['video_id'] : null,
             'screenshots' => collect($game['screenshots'])->map(function ($screenshot) {
                 return [
                     'huge' => Str::replaceFirst('thumb', 'screenshot_huge', $screenshot['url']),
