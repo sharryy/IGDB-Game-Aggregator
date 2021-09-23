@@ -78,7 +78,7 @@ class GameController extends Controller
                 return collect($game)->merge([
                     'coverImageUrl' => array_key_exists('cover', $game)
                         ? Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) : 'https://via.placeholder.com/264x352',
-                    'rating' => isset($game['rating']) ? round($game['rating']) . '%' : null,
+                    'rating' => isset($game['rating']) ? round($game['rating']) : null,
                     'platforms' => array_key_exists('platforms', $game)
                         ? collect($game['platforms'])->pluck('abbreviation')->implode(', ') : null,
                 ]);
