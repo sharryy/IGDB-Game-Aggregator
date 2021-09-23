@@ -1,5 +1,5 @@
 <script>
-    const domElement = document.getElementById({{ $slug }});
+    const domElement = document.getElementById('{{ $slug }}');
 
     var bar = new ProgressBar.Circle(domElement, {
         color: 'white',
