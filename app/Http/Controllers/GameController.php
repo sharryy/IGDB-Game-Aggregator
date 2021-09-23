@@ -84,16 +84,16 @@ class GameController extends Controller
                 ]);
             })->take(6),
             'social' => [
-                'website' => collect($game['websites'])->first(),
-                'facebook' => collect($game['websites'])->filter(function ($website) {
+                'website' => isset($game['websites']) ? collect($game['websites'])->first() : null,
+                'facebook' => isset($game['websites']) ? collect($game['websites'])->filter(function ($website) {
                     return Str::contains($website['url'], 'facebook');
-                })->first(),
-                'twitter' => collect($game['websites'])->filter(function ($website) {
+                })->first() : null,
+                'twitter' => isset($game['websites']) ? collect($game['websites'])->filter(function ($website) {
                     return Str::contains($website['url'], 'twitter');
-                })->first(),
-                'instagram' => collect($game['websites'])->filter(function ($website) {
+                })->first() : null,
+                'instagram' => isset($game['websites']) ? collect($game['websites'])->filter(function ($website) {
                     return Str::contains($website['url'], 'instagram');
-                })->first(),
+                })->first() : null,
             ]
         ]);
     }
