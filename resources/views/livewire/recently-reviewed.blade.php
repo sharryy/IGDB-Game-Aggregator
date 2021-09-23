@@ -10,11 +10,9 @@
                              class="hover:opacity-75 w-48 transition ease-in-out duration-150">
                     </a>
                     @if(isset($games['rating']))
-                        <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full"
+                        <div id="review_{{ $games['slug'] }}"
+                             class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full mb-2 text-xs"
                              style="right: -20px; bottom: -20px;">
-                            <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                {{ $games['rating'] }}
-                            </div>
                         </div>
                     @endif
                 </div>
