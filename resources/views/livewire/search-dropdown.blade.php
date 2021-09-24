@@ -10,6 +10,12 @@
         </svg>
     </div>
 
+    <div style="position: absolute;"
+         wire:loading
+         class="spinner top-0 right-0 mr-4 mt-3">
+
+    </div>
+
     @if(strlen($search) > 2)
         <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2">
             @if(count($search_results) > 0)
