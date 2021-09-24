@@ -132,15 +132,17 @@
                 Images
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
-                @foreach($games['screenshots'] as $screenshot)
-                    <div>
-                        <a href="{{ $screenshot['huge'] }}">
-                            <img src="{{ $screenshot['big'] }}"
-                                 alt="screenshot"
-                                 class="hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
-                    </div>
-                @endforeach
+                @if($games['screenshots'])
+                    @foreach($games['screenshots'] as $screenshot)
+                        <div>
+                            <a href="{{ $screenshot['huge'] }}">
+                                <img src="{{ $screenshot['big'] }}"
+                                     alt="screenshot"
+                                     class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
 
@@ -150,9 +152,11 @@
             </h2>
             <div
                 class="similar-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
-                @foreach($games['similarGames'] as $game)
-                    <x-game-card :game="$game"/>
-                @endforeach
+                @if(!empty($games['similarGames']))
+                    @foreach($games['similarGames'] as $game)
+                        <x-game-card :game="$game"/>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
