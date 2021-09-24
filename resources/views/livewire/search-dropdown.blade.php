@@ -10,16 +10,31 @@
         </svg>
     </div>
 
-    <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2">
-        <ul>
-            <li class="border-b border-gray-700">
-                <a href=""
-                   class="block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150">
-                    <img src="/screenshot1.jpg" class="w-10" alt="cover">
-                    <span class="ml-4">Zelda</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    @if(strlen($search) > 2)
+        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2">
+            @if(count($search_results) > 0)
+                <ul>
+                    @foreach($search_results as $game)
+                        <li class="border-b border-gray-700">
+                            <a href="{{ route('games.show', $game['slug']) }}"
+                               class="block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150">
+                                @if(isset($game['cover']))
+                                    <img src="{{ Str::replaceFirst('thumb', 'cover_small', $game['cover']['url']) }}"
+                                         class="w-10" alt="cover">
+                                @else
+                                    <img src="https://via.placeholder.com/264x352" alt="alternate" class="w-10">
+                                @endif
+                                <span class="ml-4">{{ $game['name'] }}</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <div class="px-3 py-3">
+                    No results for {{ $search }}
+                </div>
+            @endif
+        </div>
+    @endif
 
 </div>
