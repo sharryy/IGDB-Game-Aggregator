@@ -1,6 +1,10 @@
-<div class="relative">
+<div class="relative"
+     x-data="{ isVisible : true }"
+     @click.away="isVisible = false">
     <input type="text"
-           wire:model.debounce.300ms="search"
+           @focus="isVisible = true"
+           @keydown.escape.window="isVisible = false"
+           wire:model.debounce.200ms="search"
            class="bg-gray-800 text-sm rounded-full pl-8 focus:shadow focus:outline-none w-64 px-3 py-1"
            placeholder="Search..">
     <div class="absolute top-0 flex items-center h-full ml-2">
@@ -17,7 +21,7 @@
     </div>
 
     @if(strlen($search) > 2)
-        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2">
+        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2" x-show="isVisible">
             @if(count($search_results) > 0)
                 <ul>
                     @foreach($search_results as $game)
