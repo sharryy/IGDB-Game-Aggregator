@@ -8,6 +8,7 @@
     <title>Laracasts Video Games</title>
     <link href="/css/app.css" rel="stylesheet">
     <livewire:styles/>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-gray-900 text-white">
 <header class="border-b border-gray-800">
