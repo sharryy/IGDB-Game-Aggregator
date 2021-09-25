@@ -2,8 +2,16 @@
      x-data="{ isVisible : true }"
      @click.away="isVisible = false">
     <input type="text"
+           x-ref="search"
            @focus="isVisible = true"
            @keydown.escape.window="isVisible = false"
+           @keydown="isVisible = true"
+           @keydown.shift.tab="isVisible = false"
+           @keydown.window="
+            if (event.keyCode === 191){
+                event.preventDefault();
+                $refs.search.focus();
+            }"
            wire:model.debounce.200ms="search"
            class="bg-gray-800 text-sm rounded-full pl-8 focus:shadow focus:outline-none w-64 px-3 py-1"
            placeholder="Search..">
@@ -27,7 +35,9 @@
                     @foreach($search_results as $game)
                         <li class="border-b border-gray-700">
                             <a href="{{ route('games.show', $game['slug']) }}"
-                               class="block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150">
+                               class="block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150"
+                               @if($loop->last) @keydown.tab="isVisible = false" @endif
+                            >
                                 @if(isset($game['cover']))
                                     <img src="{{ Str::replaceFirst('thumb', 'cover_small', $game['cover']['url']) }}"
                                          class="w-10" alt="cover">
