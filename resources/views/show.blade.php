@@ -150,7 +150,7 @@
 
         <div
             x-data="{ isImageModalVisible : false, image : '' }"
-            class="images-container border-b border-gray-800 pb-12 mt-8"
+            class="images-container border-b border-gray-800 pb-12 mt-8">
         <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
             Images
         </h2>
