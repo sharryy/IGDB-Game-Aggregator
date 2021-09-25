@@ -144,43 +144,76 @@
                             </div>
                         </div>
                     </template>
-
-
                 </div>
             </div>
         </div>
 
-        <div class="images-container border-b border-gray-800 pb-12 mt-8">
-            <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
-                Images
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
-                @if($games['screenshots'])
-                    @foreach($games['screenshots'] as $screenshot)
-                        <div>
-                            <a href="{{ $screenshot['huge'] }}">
-                                <img src="{{ $screenshot['big'] }}"
-                                     alt="screenshot"
-                                     class="hover:opacity-75 transition ease-in-out duration-150">
-                            </a>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
+        <div
+            x-data="{ isImageModalVisible : false, image : '' }"
+            class="images-container border-b border-gray-800 pb-12 mt-8"
+        <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
+            Images
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+            @if($games['screenshots'])
+                @foreach($games['screenshots'] as $screenshot)
+                    <div>
+                        <a
+                            href="#"
+                            @click.prevent="
+                                    isImageModalVisible = true
+                                    image = '{{ $screenshot['big'] }}'
+                                    ">
+                            <img src="{{ $screenshot['big'] }}"
+                                 alt="screenshot"
+                                 class="hover:opacity-75 transition ease-in-out duration-150">
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
 
-        <div class="similar-games-container mt-8">
-            <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
-                Similar Games
-            </h2>
+
+        <template
+            x-if="isImageModalVisible">
             <div
-                class="similar-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
-                @if(!empty($games['similarGames']))
-                    @foreach($games['similarGames'] as $game)
-                        <x-game-card :game="$game"/>
-                    @endforeach
-                @endif
+                style="background-color: rgba(0, 0, 0, .5);"
+                class="z-50 fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+            >
+                <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+                    <div class="bg-gray-900 rounded">
+                        <div class="flex justify-end pr-4 pt-2">
+                            <button
+                                class="text-3xl leading-none hover:text-gray-300"
+                                @click="isImageModalVisible = false"
+                                @keydown.escape.window="isImageModalVisible = false"
+                            >
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body px-8 py-8">
+                            <img x-bind:src="image" alt="screenshot">
+                        </div>
+                    </div>
+                </div>
             </div>
+        </template>
+
+
+    </div>
+
+    <div class="similar-games-container mt-8">
+        <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
+            Similar Games
+        </h2>
+        <div
+            class="similar-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
+            @if(!empty($games['similarGames']))
+                @foreach($games['similarGames'] as $game)
+                    <x-game-card :game="$game"/>
+                @endforeach
+            @endif
         </div>
+    </div>
     </div>
 @endsection
