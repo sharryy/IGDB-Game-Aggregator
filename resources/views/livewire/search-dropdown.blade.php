@@ -13,8 +13,8 @@
                 $refs.search.focus();
             }"
            wire:model.debounce.200ms="search"
-           class="bg-gray-800 text-sm rounded-full pl-8 focus:shadow focus:outline-none w-64 px-3 py-1"
-           placeholder="Search..">
+           class="bg-gray-800 text-sm rounded-full pl-8 focus:shadow focus:outline-none w-64 px-3 py-1 focus:border-gray-800"
+           placeholder="Search &nbsp; (Press '/' to focus)">
     <div class="absolute top-0 flex items-center h-full ml-2">
         <svg class="fill-current text-gray-400 w-4" viewBox="0 0 24 24">
             <path class="heroicon-ui"
