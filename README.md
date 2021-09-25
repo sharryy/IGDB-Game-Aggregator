@@ -19,4 +19,6 @@ Website Demo: [https://intense-dusk-85848.herokuapp.com/](https://intense-dusk-8
 
 
 #### Credential for `IGDB API` can be found from [https://api-docs.igdb.com](https://api-docs.igdb.com/#about)
+#### The design is heavily based upon Andre Madarang Awesome Course from [Laracast](https://laracasts.com/series/build-a-video-game-aggregator).
+
 
