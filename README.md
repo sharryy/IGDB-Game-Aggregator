@@ -2,9 +2,6 @@
 
 This application is a quick demo of laravel HTTP Client. It uses [IGDB API](https://www.igdb.com/discover) to fetch data and populate the view accordingly. Technology Stack include [Laravel](https://www.laravel.com), [Livewire](https://laravel-livewire.com/), [Tailwind CSS](https://tailwindcss.com/) and  [AlpineJS](https://alpinejs.dev/).
 
-
-Website Demo: [https://intense-dusk-85848.herokuapp.com/](https://intense-dusk-85848.herokuapp.com/).
-
 ## Installation
 
 - Clone the repo and `cd` into it
